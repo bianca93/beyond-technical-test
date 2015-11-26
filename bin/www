@@ -1,0 +1,12 @@
+var config = require('../server');
+var http = require('http');
+
+// Set the port
+var port = process.env.PORT || 3000;
+config.set('port', port);
+
+// Create http server
+var server = http.createServer(config);
+
+// Listen on port
+server.listen(port);
