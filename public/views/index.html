@@ -1,9 +1,33 @@
 <!DOCTYPE html>
-<html>
 <head>
-	<title>Beyond technical test</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <base href="/">
+  <title>Beyond technical test</title>
+  <meta name="description" content="A simple test app that retrieves videos within a playlist from the Youtube API">
+  <meta name="fragment" content="!">
+
+  <!-- Apple META -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- Application CSS File -->
+  <link rel="stylesheet" href="./styles/css/main.css">
+  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
 </head>
+
 <body>
-	<h2>Test if the route renders the correct view</h2>
+  <ui-view></ui-view>
+
+  <script src="./../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./../bower_components/angular/angular.min.js"></script>
+  <script src="./../bower_components/angular-material/angular-material.min.js"></script>
+
+  <!-- App Js files -->
+  <script src="./app.js"></script>
+  <script src="./controllers/videos.controller.js"></script>
+  <script src="./routes/videos.routes.js"></script>
 </body>
+
 </html>
