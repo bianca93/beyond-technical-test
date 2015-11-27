@@ -1,3 +1,15 @@
 <section ng-controller="VideosController as vm">
 	<h1>Get the videos from your favorite Youtube playlist</h1>
+
+  <form ng-submit="vm.searchPlaylist()" name="playlistForm">
+  	<md-input-container class="md-block">
+  		<label>Playlist title</label>
+  		<input required name="description" ng-model="vm.playlist.title">
+  		<div ng-messages="playlistForm.title.$error">
+  		  <div ng-message="required">This is required.</div>
+  		</div>
+  	</md-input-container>
+    
+    <md-button type="submit">Search</md-button>
+  </form>
 </section>
