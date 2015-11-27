@@ -8,15 +8,15 @@ var gulp = require('gulp'),
 
 /* Sass task */
 gulp.task('styles', function(){
-  gulp.src(['./public/styles/scss/**/*.scss'])
+  gulp.src(['./public/scss/**/*.scss'])
     .pipe(plumber({
       errorHandler: function (error) {
         console.log(error.message);
         this.emit('end');
     }}))
-    .pipe(sass())
+    .pipe(sass({ outputStyle: 'compressed' }))
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(gulp.dest('./public/styles/css'))
+    .pipe(gulp.dest('./public/css'))
     .pipe(livereload());
 });
 
@@ -39,5 +39,5 @@ gulp.task('reload', function() {
 
 /* Default tasks */
 gulp.task('default', ['reload'], function(){
-  gulp.watch("./public/styles/scss/**/*.scss", ['styles']);
+  gulp.watch("./public/scss/**/*.scss", ['styles']);
 });
