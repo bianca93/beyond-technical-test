@@ -7,11 +7,11 @@ angular.module('youtubeVideos').config(['$stateProvider',
     $stateProvider
       .state('videos', {
         url: '/videos',
-        template: 'public/views/partials/videosList.html'
+        template: 'CACAt'
       })
       .state('videos.view', {
-        url: '/:videos',
-        templateUrl: 'public/views/partials/videoDetails.html'
+        url: '/videos/:videoId',
+        templateUrl: '../../../views/partials/videoDetails.html'
       });
   }
 ]);

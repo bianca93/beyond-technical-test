@@ -13,21 +13,21 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
   <!-- Application CSS File -->
-  <link rel="stylesheet" href="./styles/css/main.css">
-  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
 </head>
 
-<body>
+<body ng-app="youtubeVideos">
   <ui-view></ui-view>
 
-  <script src="./../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="./../bower_components/angular/angular.min.js"></script>
-  <script src="./../bower_components/angular-material/angular-material.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-material/angular-material.min.js"></script>
 
   <!-- App Js files -->
-  <script src="./app.js"></script>
-  <script src="./controllers/videos.controller.js"></script>
-  <script src="./routes/videos.routes.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/routes/videos.routes.js"></script>
 </body>
 
 </html>
