@@ -1,8 +1,8 @@
 'use strict';
 
 // Setting up route
-angular.module('youtubeVideos').config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
-  function ($stateProvider, $locationProvider, $urlRouterProvider) {
+angular.module('youtubeVideos').config(['$stateProvider', '$urlRouterProvider',
+  function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider
       .otherwise('/');
 

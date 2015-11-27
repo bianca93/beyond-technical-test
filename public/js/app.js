@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('youtubeVideos', ['ui.router']);
+var app = angular.module('youtubeVideos', ['ui.router', 'ngAnimate', 'ngMaterial']);

@@ -12,22 +12,26 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <!-- Application CSS File -->
-  <link rel="stylesheet" href="/css/style.css">
+  <!-- Application CSS Files -->
   <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- External JS files -->
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-material/angular-material.min.js"></script>
 </head>
 
 <body ng-app="youtubeVideos">
   <ui-view></ui-view>
 
-  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/bower_components/angular/angular.min.js"></script>
-  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script src="/bower_components/angular-material/angular-material.min.js"></script>
-
   <!-- App Js files -->
   <script src="/js/app.js"></script>
   <script src="/js/routes/videos.routes.js"></script>
+  <script src="/js/controllers/videos.controller.js"></script>
 </body>
 
 </html>
