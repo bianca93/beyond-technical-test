@@ -1,23 +1,18 @@
 'use strict';
 
-angular.module('youtubeVideos').service('youtubeSearch', ['$http', '$q', 
-  function($http, $q) {
-    var defer = $q.defer();
-
-    this.requestSearch =  function(query) {
-      gapi.client.setApiKey('INSERT API KEY HERE');
-      gapi.client.load('youtube', 'v3', function() {
-        var req = gapi.client.youtube.search.list({
-          q: query,
-          part: 'snippet'
-        });
-
-        req.execute(function(res) {
-          defer.resolve(res.result);
-        });
-      });
-
-      return defer.promise;
-    };
+angular.module('youtubeVideos').factory('youtubeSearch', ['$resource', 
+  function($resource) {
+    return $resource('https://www.googleapis.com/youtube/v3/search?part=:part&q=:query&key=:apiKey', {
+      query: '@query'
+    },{
+      search: {
+        method: 'GET',
+        params: {
+          part: 'snippet',
+          query: '@query',
+          apiKey: '<INSERT API KEY HERE>'
+        }
+      }
+    });
   }
 ]);
