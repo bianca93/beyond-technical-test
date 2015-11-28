@@ -4,7 +4,7 @@
   <form ng-submit="vm.searchPlaylist()" name="playlistForm">
   	<md-input-container class="md-block">
   		<label>Playlist title</label>
-  		<input required name="description" ng-model="vm.playlist.title">
+  		<input required name="title" ng-model="vm.playlist.title">
   		<div ng-messages="playlistForm.title.$error">
   		  <div ng-message="required">This is required.</div>
   		</div>
