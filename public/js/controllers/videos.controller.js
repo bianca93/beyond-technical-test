@@ -1,12 +1,15 @@
 'use strict';
 
-angular.module('youtubeVideos').controller('VideosController', ['$scope',
- function($scope) {
+angular.module('youtubeVideos').controller('VideosController', ['youtubeSearch',
+ function(youtubeSearch) {
 	var vm = this;
+  vm.playlists = [];
   vm.playlist = {};
 
   vm.searchPlaylist = function() {
-    // search for playlist
+    vm.playlists = youtubeSearch.search({
+      query: vm.playlist.title
+    });
   };
 
 }]);
