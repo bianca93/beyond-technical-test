@@ -1,5 +1,73 @@
+@import "partials/variables";
+@import "partials/placeholders";
+@import "partials/mixins";
+@import "partials/media";
+
+html {
+  @include respond_to(handhelds) {
+    font-size: 47%;
+  }
+  @include respond_to(medium-screens) {
+    font-size: 55%;
+  }
+  @include respond_to(wide-screens) {
+    font-size: 65%;
+  }
+  @include respond_to(extra-wide-screens) {
+    font-size: 85%;
+  }
+}
+
 body {
-	background-color: #cfcfcf;
-	color: blue;
-	font-size: 21px;
+  font-family: 'Lato', sans-serif;
+  background-color: $blue;
+}
+
+/* Reset margins for h* elements */
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+
+.centered-container {
+  @extend %flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  margin: auto;
+  
+  > div {
+    background-color: $light_grey;
+    padding: 2%;
+    min-width: 60%;
+
+    h1 {
+      color: $dark_blue;
+      @include font_size(45px);
+      text-align: center;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.search-form {
+  label {
+    @include font-size(25px);
+    text-transform: uppercase;
+  }
+
+  .default-btn {
+    display: block;
+    margin: auto;
+    background-color: $purple;
+    color: $white;
+    font-weight: 500;
+    border-radius: 0;
+    @include font_size(20px);
+
+    &:hover, &:focus, &:active {
+      background-color: $purple;
+    }
+  }
 }
