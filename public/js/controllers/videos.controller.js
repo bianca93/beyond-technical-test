@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('youtubeVideos').controller('VideosController', ['youtubeSearch',
- function(youtubeSearch) {
+angular.module('youtubeVideos').controller('VideosController', ['$scope', 'youtubeSearch',
+ function($scope, youtubeSearch) {
 	var vm = this;
   vm.playlists = [];
   vm.playlist = {};
@@ -15,5 +15,9 @@ angular.module('youtubeVideos').controller('VideosController', ['youtubeSearch',
       vm.playlist.title = '';
     });
   };
+
+  $scope.$on('selected', function(event, data) {
+    console.log(data);
+  });
 
 }]);
