@@ -2,17 +2,18 @@
 
 angular.module('youtubeVideos').factory('youtubeSearch', ['$resource', 
   function($resource) {
-    return $resource('https://www.googleapis.com/youtube/v3/search?part=:part&q=:query&type=:type&key=:apiKey', {
-      query: '@query',
-      type: '@type'
+    return $resource('https://www.googleapis.com/youtube/v3/:action?part=:part&:query&key=:apiKey', {
+      action: '@action',
+      part: '@part',
+      query: '@query'
     },{
       search: {
         method: 'GET',
         params: {
-          part: 'snippet',
+          action: '@action',
+          part: '@part',
           query: '@query',
-          type: '@type',
-          apiKey: 'INSERT API KEY HERE'
+          apiKey: 'AIzaSyAtDnoq_qixeFUHSb37eu_FMxbMBmh9cL'
         }
       }
     });
