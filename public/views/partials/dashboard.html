@@ -1,0 +1,23 @@
+<section ng-controller="VideosController as vm">
+  <div ng-show="vm.playlists.length === 0">
+  	<h1>Find playlists</h1>
+
+    <form ng-submit="vm.searchPlaylist()" name="playlistForm" class="search-form">
+    	<md-input-container class="md-block">
+    		<label>Playlist title</label>
+    		<input required name="title" ng-model="vm.playlist.title">
+    		<div ng-messages="playlistForm.title.$error" ng-if="playlistForm.title.$dirty && playlistForm.title.$error">
+    		  <div ng-message="required">A title is required.</div>
+    		</div>
+    	</md-input-container>
+      
+      <md-button type="submit" class="default-btn">Search</md-button>
+    </form>
+  </div>
+  <div ng-show="vm.playlists.length > 0">
+    <h1>
+      Choose playlist
+    </h1>
+    <search-item ng-repeat="playlists in vm.playlists" element="playlists"></search-item>
+  </div>
+</section>

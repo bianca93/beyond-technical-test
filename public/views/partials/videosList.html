@@ -1,0 +1,8 @@
+<section ng-controller="VideosController as vm">
+  <div>
+    <h1>
+      Videos from playlist {{vm.playlist.snippet.title}}
+    </h1>
+    <search-item ng-repeat="videos in vm.playlist.items" element="videos"></search-item>
+  </div>
+</section>

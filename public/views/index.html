@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <base href="/">
+  <title>Beyond technical test</title>
+  <meta name="description" content="A simple test app that retrieves videos within a playlist from the Youtube API">
+  <meta name="fragment" content="!">
+
+  <!-- Apple META -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <!-- Lato font -->
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  <!-- Application CSS Files -->
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- External JS files -->
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="/bower_components/angular-material/angular-material.min.js"></script>
+  <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+</head>
+
+<body ng-app="youtubeVideos">
+  <ui-view class="centered-container"></ui-view>
+
+  <!-- App Js files -->
+  <script src="/js/app.js"></script>
+  <script src="/js/routes/videos.routes.js"></script>
+  <script src="/js/controllers/videos.controller.js"></script>
+  <script src="/js/services/youtubeSearch.service.js"></script>
+  <script src="/js/directives/searchItem.directive.js"></script>
+</body>
+
+</html>

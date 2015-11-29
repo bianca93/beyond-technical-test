@@ -1,0 +1,41 @@
+{
+  "name": "beyond-technical-test",
+  "version": "1.0.0",
+  "description": "A simple test app that retrieves videos within a playlist from the Youtube API",
+  "main": "app.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bianca93/beyond-technical-test.git"
+  },
+  "keywords": [
+    "angular",
+    "frontend",
+    "challenge",
+    "youtube",
+    "api"
+  ],
+  "author": "Bianca Trif <bianca.trif28@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bianca93/beyond-technical-test/issues"
+  },
+  "homepage": "https://github.com/bianca93/beyond-technical-test#readme",
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "path": "^0.12.7"
+  }
+}

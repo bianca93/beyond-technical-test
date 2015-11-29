@@ -1,0 +1,167 @@
+@import "partials/variables";
+@import "partials/placeholders";
+@import "partials/mixins";
+@import "partials/media";
+
+html {
+  @include respond_to(handhelds) {
+    font-size: 47%;
+  }
+  @include respond_to(medium-screens) {
+    font-size: 55%;
+  }
+  @include respond_to(wide-screens) {
+    font-size: 65%;
+  }
+  @include respond_to(extra-wide-screens) {
+    font-size: 85%;
+  }
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Reset margins for h* elements */
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+
+.centered-container {
+  @extend %flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  margin: auto;
+  background-color: $blue;
+  
+  > section {
+    background-color: $light_grey;
+    padding: 2%;
+    min-width: 30%;
+    max-width: 70%;
+
+    @include respond_to(handhelds) {
+      min-width: 80%;
+      max-width: 95%;
+    }
+
+    h1 {
+      color: $dark_blue;
+      @include font_size(45px);
+      text-align: center;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.search-form {
+  label {
+    @include font_size(25px);
+    text-transform: uppercase;
+  }
+
+  .md-input {
+    @include font_size(25px);
+  }
+
+  .default-btn {
+    display: block;
+    margin: auto;
+    background-color: $purple;
+    color: $white;
+    font-weight: 500;
+    border-radius: 0;
+    @include font_size(20px);
+
+    &:hover, &:focus, &:active {
+      background-color: $purple;
+    }
+  }
+}
+
+.animate-repeat {
+  &.ng-enter {
+    @include animation('slide_in_up 1s');
+  }
+}
+
+.item-playlist {
+  @extend %flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+
+  figure {
+    order: 1;
+    margin: 0 1em ;
+  }
+
+  div {
+    @extend %flex;
+    flex-direction: column;
+    order: 2;
+    max-width: 60%;
+
+    * {
+      flex: 1 auto;
+      width: 100%;
+      word-wrap: break-word;
+    }
+
+    h2 {
+      color: $turqoise;
+      @include font_size(25px);
+      font-weight: 300;
+      padding-bottom: .3em;
+    }
+
+    h3 {
+      padding-bottom: .3em;
+      color: $light_green;
+      @include font_size(18px);
+    }
+
+    p {
+      color: $dark_blue;
+      @include font_size(22px);
+      overflow: hidden;
+
+      display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;  
+    }
+  }
+
+  @include respond_to(handhelds) {
+    flex-direction: column;
+
+    figure {
+      order: 2;
+      display: block;
+      margin: auto;
+    }
+
+    div {
+      order: 1;
+      align-items: center;
+
+      p {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: $blue;
+    cursor: pointer;
+
+    * {
+      color: $white;
+    }
+  }
+}
