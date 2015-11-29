@@ -43,6 +43,11 @@ h1,h2,h3,h4,h5,h6 {
     min-width: 40%;
     max-width: 85%;
 
+    @include respond_to(handhelds) {
+      min-width: 80%;
+      max-width: 95%;
+    }
+
     h1 {
       color: $dark_blue;
       @include font_size(45px);
@@ -103,7 +108,7 @@ h1,h2,h3,h4,h5,h6 {
 
     * {
       flex: 1 auto;
-      padding-top: .3em;
+      padding-bottom: .3em;
     }
 
     h2 {
@@ -128,10 +133,17 @@ h1,h2,h3,h4,h5,h6 {
 
     figure {
       order: 2;
+      display: block;
+      margin: auto;
     }
 
     div {
       order: 1;
+      align-items: center;
+
+      p {
+        display: none;
+      }
     }
   }
 
