@@ -10,7 +10,17 @@ angular.module('youtubeVideos').directive('searchItem', function() {
     templateUrl: '/views/partials/searchItem.html',
     link: function($scope, $element) {
       $element.bind('click', function(){
-        $scope.$emit('selected', $scope.element.id.playlistId);
+        id($scope.element = playlist) {
+          $scope.$emit('selected', { 
+            data: $scope.element.id.playlistId, 
+            type: 'playlist'
+          });
+        } else {
+          $scope.$emit('selected', { 
+            data: $scope.element.id.videoId, 
+            type: 'video'
+          });
+        }
       });
     }
   };
