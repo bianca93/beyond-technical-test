@@ -7,14 +7,13 @@ angular.module('youtubeVideos').controller('VideosController', ['youtubeSearch',
   vm.playlist = {};
 
   vm.searchPlaylist = function() {
-    var results = youtubeSearch.search({
+    youtubeSearch.search({
       query: vm.playlist.title,
       type: 'playlist'
+    }).$promise.then(function(results) {
+      vm.playlists = results.items;
+      vm.playlist.title = '';
     });
-    vm.playlist.title = '';
-
-    vm.playlists = results.items;
   };
-
 
 }]);
