@@ -40,8 +40,8 @@ h1,h2,h3,h4,h5,h6 {
   > section {
     background-color: $light_grey;
     padding: 2%;
-    min-width: 40%;
-    max-width: 85%;
+    min-width: 30%;
+    max-width: 70%;
 
     @include respond_to(handhelds) {
       min-width: 80%;
@@ -92,8 +92,8 @@ h1,h2,h3,h4,h5,h6 {
   @extend %flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
   margin: 2em auto;
 
   figure {
@@ -105,26 +105,35 @@ h1,h2,h3,h4,h5,h6 {
     @extend %flex;
     flex-direction: column;
     order: 2;
+    max-width: 60%;
 
     * {
       flex: 1 auto;
-      padding-bottom: .3em;
+      width: 100%;
+      word-wrap: break-word;
     }
 
     h2 {
       color: $turqoise;
       @include font_size(25px);
       font-weight: 300;
+      padding-bottom: .3em;
     }
 
     h3 {
+      padding-bottom: .3em;
       color: $light_green;
       @include font_size(18px);
     }
 
     p {
       color: $dark_blue;
-      @include font_size(22px);  
+      @include font_size(22px);
+      overflow: hidden;
+
+      display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;  
     }
   }
 
