@@ -18,15 +18,6 @@
     <h1>
       Choose playlist
     </h1>
-    <article ng-repeat="playlists in vm.playlists" class="animate-repeat item-playlist">
-      <div>
-        <h2>{{playlists.snippet.title}}</h2>
-        <h3>Published on {{playlists.snippet.publishedAt | date: 'MMM d, y'}}</h3>
-        <p>{{playlists.snippet.description || 'No description provided'}}</p>
-      </div>
-      <figure>
-        <img ng-src="{{playlists.snippet.thumbnails.default.url}}" alt="{{playlists.snippet.title}}">
-      </figure>
-    </article>
+    <search-item ng-repeat="playlists in vm.playlists"></search-item>
   </div>
 </section>
