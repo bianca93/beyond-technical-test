@@ -13,7 +13,7 @@ angular.module('youtubeVideos').factory('youtubeSearch', ['$resource',
           action: '@action',
           part: '@part',
           query: '@query',
-          apiKey: 'AIzaSyAtDnoq_qixeFUHSb37eu_FMxbMBmh9cL'
+          apiKey: 'INSERT API KEY HERE'
         }
       }
     });
