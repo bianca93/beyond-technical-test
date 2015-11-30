@@ -91,14 +91,21 @@ h1,h2,h3,h4,h5,h6 {
 .item-playlist {
   @extend %flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 2em auto;
 
-  figure {
+  figure, iframe {
     order: 1;
     margin: 0 1em ;
+  }
+  
+  figure {
+    @include respond_to(medium-screens) {
+      img {
+        max-width: 100%;
+      }
+    }
   }
 
   div {
@@ -140,10 +147,14 @@ h1,h2,h3,h4,h5,h6 {
   @include respond_to(handhelds) {
     flex-direction: column;
 
-    figure {
+    figure, iframe {
       order: 2;
       display: block;
       margin: auto;
+    }
+
+    figure img {
+      width: 100%;
     }
 
     div {
@@ -163,5 +174,42 @@ h1,h2,h3,h4,h5,h6 {
     * {
       color: $white;
     }
+  }
+}
+
+.video-item {
+  @extend %flex;
+  flex-direction: column;
+
+  div {
+    @extend %flex;
+    flex-direction: row;
+
+    p {
+      max-width: 60%;
+      word-wrap: break-word;
+    }
+
+    @include respond_to(handhelds) {
+      flex-direction: column;
+    }
+
+    @include respond_to(medium-screens) {
+      flex-direction: column;
+    }
+  }
+
+  div, header {
+    * {
+      margin: 1em;
+    }
+  }
+}
+
+.back-videos {
+  text-decoration: underline;
+  
+  &, &:visited, &:active, &:focus {
+    color: $purple;
   }
 }
