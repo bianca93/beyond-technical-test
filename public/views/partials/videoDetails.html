@@ -1,3 +1,13 @@
-<section ng-controller="VideosController as vm">
-  Here is a single video
+<section ng-controller="VideosController as vm" ng-init="vm.loadItemsIntoScope()">
+  <a ng-click="vm.backLink()" class="back-videos">&#60; Back to list of videos</a>
+  <article class="video-item">
+    <header>
+      <h2>{{vm.video.snippet.title}}</h2>
+      <h3>Published on {{vm.video.snippet.publishedAt | date: 'MMM d, y'}}</h3>
+    </header>
+    <div>
+      <iframe src="{{vm.videoUrl}}"></iframe>
+      <p>{{vm.video.snippet.description}}</p>
+    </div>
+  </article>
 </section>
