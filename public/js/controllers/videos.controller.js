@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('youtubeVideos').controller('VideosController', ['$scope', '$location' , 'youtubeSearch',
- function($scope, $location, youtubeSearch) {
+angular.module('youtubeVideos').controller('VideosController', ['$scope', '$location', '$state', '$stateParams', '$window', '$sce', 'youtubeSearch',
+ function($scope, $location, $state, $stateParams, $window, $sce, youtubeSearch) {
 	var vm = this;
   vm.playlists = [];
-  vm.playlist = {};
+  vm.videos = [];
+  vm.video = {};
+  vm.videoUrl = '';
 
   /** 
     Todo(bianca): refactor the way we call the Youtube API
@@ -37,26 +39,39 @@ angular.module('youtubeVideos').controller('VideosController', ['$scope', '$loca
   
   $scope.$on('selected', function(event, selectedElement) {
     if(selectedElement.type === 'playlist') {
-    // Here we get the playlist id from the emitted event
+      $location.path('/playlist/' + selectedElement.data);
+    } else if(selectedElement.type === 'video') {
+        $location.path('/video/' + selectedElement.data);
+      }
+    $scope.$apply();
+  });
+
+  vm.loadItemsIntoScope = function() {
+    if($state.includes('playlist')) {
+      // Here we get the playlist with the provided id
       youtubeSearch.search({
         action: 'playlistItems',
         part: 'snippet',
-        playlistId: selectedElement.data
+        query: 'playlistId=' + $stateParams.playlistId
       }).$promise.then(function(results) {
-        $location.path('/videos');
-        vm.playlist = results.items;
+        vm.videos = results.items;
       });
-    } else {
+    } else if($state.includes('video')) {
       // Here we get the video id from the emitted event
-        youtubeSearch.search({
+      youtubeSearch.search({
         action: 'videos',
         part: 'snippet',
-        playlistId: selectedElement.data
+        query: 'id=' + $stateParams.videoId
       }).$promise.then(function(results) {
-        $location.path('/videos' + selectedElement.data);
-        vm.video = results;
+        vm.video = results.items[0];
+        var tempUrl = 'http://www.youtube.com/embed/' + vm.video.id;
+        vm.videoUrl = $sce.trustAsResourceUrl(tempUrl);
       });
     }
-  });
-
+  };
+  
+  vm.backLink = function() {
+    $window.history.back();
+  };
+  
 }]);
