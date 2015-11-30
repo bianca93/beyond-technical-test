@@ -12,12 +12,12 @@ angular.module('youtubeVideos').config(['$stateProvider', '$urlRouterProvider',
         url: '/',
         templateUrl: '/views/partials/dashboard.html'
       })
-      .state('videos', {
-        url: '/videos',
+      .state('playlist', {
+        url: '/playlist/:playlistId',
         templateUrl: '/views/partials/videosList.html'
       })
-      .state('videos.view', {
-        url: '/:videoId',
+      .state('video', {
+        url: '/video/:videoId',
         templateUrl: '/views/partials/videoDetails.html'
       });
   }
