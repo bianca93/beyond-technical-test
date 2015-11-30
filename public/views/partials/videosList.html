@@ -1,8 +1,8 @@
-<section ng-controller="VideosController as vm">
+<section ng-controller="VideosController as vm" ng-init="vm.loadItemsIntoScope()">
   <div>
     <h1>
-      Videos from playlist {{vm.playlist.snippet.title}}
+      Videos from selected playlist
     </h1>
-    <search-item ng-repeat="videos in vm.playlist.items" element="videos"></search-item>
+    <search-item ng-repeat="video in vm.videos" element="video" type="'video'"></search-item>
   </div>
 </section>
